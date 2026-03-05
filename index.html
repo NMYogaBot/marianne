@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Marianne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fdf6ee;
+      color: #3a2a1e;
+      font-family: 'EB Garamond', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    /* Floating petals */
+    .petals {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: -40px;
+      font-size: 1.4rem;
+      opacity: 0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.5; }
+      100% { opacity: 0; transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .petal:nth-child(1)  { left: 5%;  animation-duration: 9s;  animation-delay: 0s;   font-size: 1.1rem; }
+    .petal:nth-child(2)  { left: 15%; animation-duration: 12s; animation-delay: 1s;   font-size: 1.6rem; }
+    .petal:nth-child(3)  { left: 25%; animation-duration: 10s; animation-delay: 3s;   font-size: 1.2rem; }
+    .petal:nth-child(4)  { left: 35%; animation-duration: 14s; animation-delay: 0.5s; font-size: 1.0rem; }
+    .petal:nth-child(5)  { left: 45%; animation-duration: 11s; animation-delay: 2s;   font-size: 1.5rem; }
+    .petal:nth-child(6)  { left: 55%; animation-duration: 8s;  animation-delay: 4s;   font-size: 1.3rem; }
+    .petal:nth-child(7)  { left: 65%; animation-duration: 13s; animation-delay: 1.5s; font-size: 1.1rem; }
+    .petal:nth-child(8)  { left: 75%; animation-duration: 10s; animation-delay: 3.5s; font-size: 1.4rem; }
+    .petal:nth-child(9)  { left: 85%; animation-duration: 15s; animation-delay: 0.8s; font-size: 1.2rem; }
+    .petal:nth-child(10) { left: 92%; animation-duration: 9s;  animation-delay: 2.5s; font-size: 1.0rem; }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(200,170,140,0.35);
+      border-radius: 2px;
+      max-width: 560px;
+      width: 90%;
+      padding: 56px 52px 52px;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(100,60,20,0.10);
+      animation: rise 1.4s ease both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .ornament {
+      font-size: 1.6rem;
+      letter-spacing: 0.25em;
+      color: #c4956a;
+      margin-bottom: 28px;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      letter-spacing: 0.08em;
+      line-height: 1.15;
+      color: #3a2a1e;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #9a6a45;
+      letter-spacing: 0.06em;
+      margin-bottom: 36px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #c4956a, transparent);
+      margin: 0 auto 36px;
+    }
+
+    .message {
+      font-size: 1.13rem;
+      line-height: 1.9;
+      color: #4a3426;
+      margin-bottom: 40px;
+    }
+
+    .message em {
+      font-style: italic;
+      color: #8a5a35;
+    }
+
+    .heart {
+      display: inline-block;
+      font-size: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
+      color: #c4956a;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.18); }
+    }
+
+    .from {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #9a7a5a;
+      letter-spacing: 0.05em;
+    }
+
+    .bottom-ornament {
+      margin-top: 36px;
+      font-size: 1.1rem;
+      color: #c4956a;
+      opacity: 0.6;
+      letter-spacing: 0.3em;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 40px 28px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="petals">
+    <div class="petal">🌸</div>
+    <div class="petal">🌺</div>
+    <div class="petal">✿</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌼</div>
+    <div class="petal">🌸</div>
+    <div class="petal">✿</div>
+    <div class="petal">🌺</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌼</div>
+  </div>
+
+  <div class="card">
+    <div class="ornament">✦ ✦ ✦</div>
+    <h1>Marianne</h1>
+    <p class="subtitle">— en liten hilsen til deg —</p>
+    <div class="divider"></div>
+    <p class="message">
+      Det finnes ikke ord vakre nok<br>
+      til å beskrive hvor mye du betyr.<br><br>
+      Men noen ganger trenger man ikke ord —<br>
+      <em>bare å vite at noen tenker på deg,</em><br>
+      akkurat nå, akkurat her.
+    </p>
+    <div class="heart">♥</div>
+    <p class="from">Med kjærlighet</p>
+    <div class="bottom-ornament">· · ·</div>
+  </div>
+
+</body>
+</html>
